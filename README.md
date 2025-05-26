@@ -8,9 +8,12 @@ The project creates parallel networking infrastructure in both AWS and Azure:
 
 ### AWS Components
 - **VPC** (Virtual Private Cloud) with custom CIDR block
-- **Public and Private Subnets** across multiple Availability Zones
+- **Public Subnets (10.0.101.0/24, 10.0.102.0/24, 10.0.103.0/24)** across us-west-1a/b/c
+- **Private Subnets (10.0.1.0/24, 10.0.2.0/24, 10.0.3.0/24)** across us-west-1a/b/c
 - **Internet Gateway** for public internet access
-- **NAT Gateway** for private subnet internet access
+- **Single NAT Gateway** for cost optimization (shared across all private subnets)
+- **VPN Gateway** enabled for hybrid connectivity
+- **VPC Flow Logs** in Parquet format for network monitoring
 - **Route Tables** with appropriate routing rules
 - **Security Groups** with basic ingress/egress rules
 - **Network ACLs** for additional network-level security
